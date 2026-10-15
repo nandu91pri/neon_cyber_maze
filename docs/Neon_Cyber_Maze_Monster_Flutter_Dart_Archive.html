@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Neon Cyber Maze Monster Game Archive</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Neon Cyber Maze Monster Game Archive</h1>
+</header>
+<h1
+id="neon-cyber-maze-monster-game-flutterdart-development-archive">Neon
+Cyber Maze Monster Game — Flutter/Dart Development Archive</h1>
+<p><strong>Purpose:</strong> A working reference archive of the Neon
+Cyber Maze Monster Game discussion, setup instructions, source code, and
+testing checklist.</p>
+<p><strong>Scope note:</strong> This archive covers the Neon Cyber Maze
+Monster Game conversation available in this chat. It preserves the
+requests and development guidance, including the complete first-version
+code. It cannot automatically include separate conversations that are
+not present in this chat.</p>
+<hr />
+<h2 id="conversation-1-users-initial-request">Conversation 1 — User’s
+initial request</h2>
+<p><strong>User:</strong> Help me in building “Neon cyber maze monster
+game” development in Flutter-Dart</p>
+<h2 id="assistant-reply-game-concept-and-plan">Assistant reply — Game
+concept and plan</h2>
+<p>Aakash, let’s build a <strong>Neon Cyber Maze Monster</strong> game
+using Flutter and Dart, step by step, in VS Code. We’ll start with a
+playable prototype and then develop it into a polished Android game.</p>
+<p>The recommendation is to begin with a <strong>2D neon arcade
+maze</strong>, rather than a complex 3D game. It’s more practical to
+build, test, and optimize in Flutter, especially when learning game
+development while creating a publishable Android application.</p>
+<h3 id="game-concept">Game concept</h3>
+<p>Possible title: <strong>NEON MAZE: Cyber Monster Escape</strong></p>
+<p>The game concept: - Control a cyber runner who navigates through a
+glowing maze. - A monster chases the player through corridors. - Energy
+orbs are scattered around the maze. - Neon walls glow in electric blue,
+purple, and cyan. - A countdown timer adds pressure. - Power-ups let the
+player freeze, distract, or escape from the monster. - Levels become
+harder as the monster gets faster and the maze grows more
+complicated.</p>
+<h3 id="recommended-technology">Recommended technology</h3>
+<ul>
+<li><strong>Flutter + Dart:</strong> app structure, menus, settings,
+scores, and Android deployment.</li>
+<li><strong>Flame game engine:</strong> an option for scalable 2D
+gameplay, game loops, collision detection, sprites, and effects.</li>
+<li><strong>VS Code:</strong> coding, debugging, testing, and building
+the APK.</li>
+</ul>
+<h3 id="development-roadmap">Development roadmap</h3>
+<ol type="1">
+<li><strong>Stage 1 — Playable prototype:</strong> neon maze, player
+movement, collectible orbs, score, and basic collision detection.</li>
+<li><strong>Stage 2 — Monster AI:</strong> monster movement, pathfinding
+through corridors, chasing, and player capture.</li>
+<li><strong>Stage 3 — Game mechanics:</strong> power-ups, lives, timer,
+sound effects, pause, game over, and victory screens.</li>
+<li><strong>Stage 4 — Full game:</strong> multiple levels, difficulty
+progression, saved high scores, settings, and improved graphics.</li>
+<li><strong>Stage 5 — Android release:</strong> touch controls,
+responsive layouts, testing, app icon, privacy requirements, and Google
+Play preparation.</li>
+</ol>
+<h3 id="initial-setup-commands">Initial setup commands</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> create neon_cyber_maze</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> neon_cyber_maze</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div>
+<p>Verify the setup:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> doctor</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> devices</span></code></pre></div>
+<p>The initial project structure proposed for later growth:</p>
+<pre class="text"><code>neon_cyber_maze/
+├── lib/
+│   ├── main.dart
+│   ├── game/
+│   │   ├── cyber_maze_game.dart
+│   │   ├── maze_map.dart
+│   │   ├── player.dart
+│   │   ├── monster.dart
+│   │   └── collectible.dart
+│   ├── screens/
+│   │   ├── home_screen.dart
+│   │   ├── game_screen.dart
+│   │   └── result_screen.dart
+│   └── widgets/
+│       └── game_controls.dart
+├── assets/
+│   ├── images/
+│   └── audio/
+└── pubspec.yaml</code></pre>
+<p>This was a planned structure; the first prototype was subsequently
+kept in a single Dart file for easier setup.</p>
+<hr />
+<h2 id="conversation-2-users-implementation-preferences">Conversation 2
+— User’s implementation preferences</h2>
+<p><strong>User:</strong> Help me build the Neon Cyber Maze Monster game
+in Flutter and Dart. Project: create from scratch. Controls: both mobile
+touch and keyboard. Visual style: classic neon arcade. Give me
+step-by-step instructions, exact file paths, complete working code, and
+testing instructions.</p>
+<h2 id="assistant-reply-start-from-scratch">Assistant reply — Start from
+scratch</h2>
+<p>The selected implementation is: - A new Flutter project. - Both
+mobile touch controls and keyboard controls. - Classic neon arcade
+visual style. - Step-by-step instructions, exact file paths, complete
+code, and testing instructions.</p>
+<p>The first milestone is a playable game: move around a maze, collect
+glowing energy orbs, avoid a monster, earn points, and restart after
+winning or losing.</p>
+<h3 id="step-1-create-the-flutter-project">Step 1 — Create the Flutter
+project</h3>
+<p>Open VS Code and choose <strong>Terminal → New Terminal</strong>.
+Run:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> create neon_cyber_maze</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> neon_cyber_maze</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div>
+<p>If <code>code .</code> does not work, open the
+<code>neon_cyber_maze</code> folder manually through <strong>File → Open
+Folder</strong>.</p>
+<p>Check Flutter:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> doctor</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> devices</span></code></pre></div>
+<p>At least one target should be available, such as a connected Android
+phone or Windows desktop. Windows desktop development must be enabled if
+you intend to run on Windows.</p>
+<h3 id="implementation-approach">Implementation approach</h3>
+<p>The first version uses Flutter’s built-in <code>CustomPainter</code>
+and a small game loop. This avoids adding a game-engine dependency at
+the beginning. The code is kept in <code>lib/main.dart</code> to make
+the first version easy to run and understand. Later, it can be split
+into player, monster, maze, and screen classes.</p>
+<hr />
+<h2 id="conversation-3-complete-first-version-code">Conversation 3 —
+Complete first-version code</h2>
+<p><strong>Assistant instruction:</strong> In VS Code, open
+<code>lib/main.dart</code>, select all existing code, delete it, paste
+the code below, and save with <code>Ctrl + S</code>.</p>
+<p>The code uses only Flutter’s built-in libraries. No extra package is
+required for this first version.</p>
+<h3 id="file-libmain.dart">File: <code>lib/main.dart</code></h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode dart"><code class="sourceCode dart"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&#39;dart:async&#39;</span>;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&#39;dart:math&#39;</span> <span class="kw">as</span> math;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&#39;package:flutter/material.dart&#39;</span>;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">&#39;package:flutter/services.dart&#39;</span>;</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> main() <span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  runApp(<span class="at">const</span> NeonCyberMazeApp());</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Color neonCyan <span class="op">=</span> Color(<span class="dv">0xFF00F5FF</span>);</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Color neonPurple <span class="op">=</span> Color(<span class="dv">0xFFB026FF</span>);</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Color neonPink <span class="op">=</span> Color(<span class="dv">0xFFFF2E93</span>);</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Color backgroundColor <span class="op">=</span> Color(<span class="dv">0xFF050816</span>);</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NeonCyberMazeApp <span class="kw">extends</span> StatelessWidget <span class="op">{</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> NeonCyberMazeApp(<span class="op">{</span><span class="kw">super</span><span class="op">.</span>key<span class="op">}</span>);</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  Widget build(BuildContext context) <span class="op">{</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> MaterialApp(</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      debugShowCheckedModeBanner<span class="op">:</span> <span class="cn">false</span><span class="op">,</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      title<span class="op">:</span> <span class="st">&#39;Neon Cyber Maze Monster&#39;</span><span class="op">,</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      theme<span class="op">:</span> ThemeData<span class="op">.</span>dark()<span class="op">.</span>copyWith(</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        scaffoldBackgroundColor<span class="op">:</span> backgroundColor<span class="op">,</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        colorScheme<span class="op">:</span> <span class="at">const</span> ColorScheme<span class="op">.</span>dark(</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>          primary<span class="op">:</span> neonCyan<span class="op">,</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>          secondary<span class="op">:</span> neonPurple<span class="op">,</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        )<span class="op">,</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>      home<span class="op">:</span> <span class="at">const</span> CyberMazeScreen()<span class="op">,</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CyberMazeScreen <span class="kw">extends</span> StatefulWidget <span class="op">{</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> CyberMazeScreen(<span class="op">{</span><span class="kw">super</span><span class="op">.</span>key<span class="op">}</span>);</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  State<span class="op">&lt;</span>CyberMazeScreen<span class="op">&gt;</span> createState() <span class="op">=&gt;</span> _CyberMazeScreenState();</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> _CyberMazeScreenState <span class="kw">extends</span> State<span class="op">&lt;</span>CyberMazeScreen<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">// # = wall, . = energy orb, P = player, M = monster</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> <span class="at">const</span> <span class="dt">List</span><span class="op">&lt;</span><span class="dt">String</span><span class="op">&gt;</span> _layout <span class="op">=</span> [</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;###############&#39;</span><span class="op">,</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#P....#.......#&#39;</span><span class="op">,</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.##..#..###..#&#39;</span><span class="op">,</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#......#......#&#39;</span><span class="op">,</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;###.##...##.###&#39;</span><span class="op">,</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#...#.....#...#&#39;</span><span class="op">,</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.#.#.###.#.#.#&#39;</span><span class="op">,</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.#...#...#.#.#&#39;</span><span class="op">,</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.###.#.###.#.#&#39;</span><span class="op">,</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.....#.....#.#&#39;</span><span class="op">,</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#.###...###...#&#39;</span><span class="op">,</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#...#.....#...#&#39;</span><span class="op">,</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;###.#.###.#.###&#39;</span><span class="op">,</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;#...........M.#&#39;</span><span class="op">,</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;###############&#39;</span><span class="op">,</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>  ];</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">late</span> <span class="dt">List</span><span class="op">&lt;</span><span class="dt">List</span><span class="op">&lt;</span><span class="dt">String</span><span class="op">&gt;&gt;</span> _maze;</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _playerX <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _playerY <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _monsterX <span class="op">=</span> <span class="dv">12</span>;</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _monsterY <span class="op">=</span> <span class="dv">13</span>;</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _score <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _ticks <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> _lives <span class="op">=</span> <span class="dv">3</span>;</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> _playing <span class="op">=</span> <span class="cn">true</span>;</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> _won <span class="op">=</span> <span class="cn">false</span>;</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> _started <span class="op">=</span> <span class="cn">false</span>;</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>  Timer<span class="op">?</span> _timer;</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> FocusNode _focusNode <span class="op">=</span> FocusNode();</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> <span class="kw">get</span> _secondsLeft <span class="op">=&gt;</span> math<span class="op">.</span>max(<span class="dv">0</span><span class="op">,</span> <span class="dv">120</span> <span class="op">-</span> _ticks <span class="op">~/</span> <span class="dv">6</span>);</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> initState() <span class="op">{</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span><span class="op">.</span>initState();</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>    _resetMaze();</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _resetMaze() <span class="op">{</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    _maze <span class="op">=</span> _layout<span class="op">.</span>map((row) <span class="op">=&gt;</span> row<span class="op">.</span>split(<span class="st">&#39;&#39;</span>))<span class="op">.</span>toList();</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span>; y <span class="op">&lt;</span> _maze<span class="op">.</span>length; y<span class="op">++</span>) <span class="op">{</span></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span>; x <span class="op">&lt;</span> _maze[y]<span class="op">.</span>length; x<span class="op">++</span>) <span class="op">{</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (_maze[y][x] <span class="op">==</span> <span class="st">&#39;P&#39;</span>) <span class="op">{</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>          _playerX <span class="op">=</span> x;</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>          _playerY <span class="op">=</span> y;</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>          _maze[y][x] <span class="op">=</span> <span class="st">&#39; &#39;</span>;</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (_maze[y][x] <span class="op">==</span> <span class="st">&#39;M&#39;</span>) <span class="op">{</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>          _monsterX <span class="op">=</span> x;</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>          _monsterY <span class="op">=</span> y;</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>          _maze[y][x] <span class="op">=</span> <span class="st">&#39; &#39;</span>;</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _startGame() <span class="op">{</span></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (_started) <span class="kw">return</span>;</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>    setState(() <span class="op">{</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>      _started <span class="op">=</span> <span class="cn">true</span>;</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>      _playing <span class="op">=</span> <span class="cn">true</span>;</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>);</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>    _timer <span class="op">=</span> Timer<span class="op">.</span>periodic(</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> Duration(milliseconds<span class="op">:</span> <span class="dv">160</span>)<span class="op">,</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>      (_) <span class="op">=&gt;</span> _gameTick()<span class="op">,</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>    _focusNode<span class="op">.</span>requestFocus();</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _restartGame() <span class="op">{</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>    _timer<span class="op">?.</span>cancel();</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>    setState(() <span class="op">{</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>      _resetMaze();</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>      _score <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>      _ticks <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>      _lives <span class="op">=</span> <span class="dv">3</span>;</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>      _playing <span class="op">=</span> <span class="cn">true</span>;</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>      _won <span class="op">=</span> <span class="cn">false</span>;</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>      _started <span class="op">=</span> <span class="cn">false</span>;</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>);</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>    _startGame();</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> _isOpen(<span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y) <span class="op">{</span></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> y <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>        y <span class="op">&lt;</span> _maze<span class="op">.</span>length <span class="op">&amp;&amp;</span></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>        x <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>        x <span class="op">&lt;</span> _maze[y]<span class="op">.</span>length <span class="op">&amp;&amp;</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>        _maze[y][x] <span class="op">!=</span> <span class="st">&#39;#&#39;</span>;</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _movePlayer(<span class="dt">int</span> dx<span class="op">,</span> <span class="dt">int</span> dy) <span class="op">{</span></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>_playing) <span class="kw">return</span>;</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>_started) <span class="op">{</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>      _startGame();</span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> <span class="dt">int</span> nx <span class="op">=</span> _playerX <span class="op">+</span> dx;</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> <span class="dt">int</span> ny <span class="op">=</span> _playerY <span class="op">+</span> dy;</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>_isOpen(nx<span class="op">,</span> ny)) <span class="kw">return</span>;</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>    setState(() <span class="op">{</span></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>      _playerX <span class="op">=</span> nx;</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>      _playerY <span class="op">=</span> ny;</span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (_maze[ny][nx] <span class="op">==</span> <span class="st">&#39;.&#39;</span>) <span class="op">{</span></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>        _maze[ny][nx] <span class="op">=</span> <span class="st">&#39; &#39;</span>;</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>        _score <span class="op">+=</span> <span class="dv">10</span>;</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>      _checkCollision();</span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (_playing <span class="op">&amp;&amp;</span> <span class="op">!</span>_hasPellets()) <span class="op">{</span></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>        _finishGame(<span class="cn">true</span>);</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>);</span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> _hasPellets() <span class="op">{</span></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="at">final</span> row <span class="kw">in</span> _maze) <span class="op">{</span></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (row<span class="op">.</span>contains(<span class="st">&#39;.&#39;</span>)) <span class="kw">return</span> <span class="cn">true</span>;</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> <span class="cn">false</span>;</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _gameTick() <span class="op">{</span></span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>_playing <span class="op">||</span> <span class="op">!</span>_started) <span class="kw">return</span>;</span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    setState(() <span class="op">{</span></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>      _ticks<span class="op">++</span>;</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (_secondsLeft <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="op">{</span></span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>        _finishGame(<span class="cn">false</span>);</span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span>;</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>      <span class="co">// The monster moves every fourth tick.</span></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (_ticks <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>) <span class="op">{</span></span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>        _moveMonster();</span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>        _checkCollision();</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>);</span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _moveMonster() <span class="op">{</span></span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Breadth-first search calculates distances from the player.</span></span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> rows <span class="op">=</span> _maze<span class="op">.</span>length;</span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> cols <span class="op">=</span> _maze[<span class="dv">0</span>]<span class="op">.</span>length;</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> distances <span class="op">=</span> <span class="dt">List</span><span class="op">.</span>generate(</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a>      rows<span class="op">,</span></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>      (_) <span class="op">=&gt;</span> <span class="dt">List</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;.</span>filled(cols<span class="op">,</span> <span class="op">-</span><span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> queue <span class="op">=</span> <span class="op">&lt;</span>(<span class="dt">int</span><span class="op">,</span> <span class="dt">int</span>)<span class="op">&gt;</span>[];</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>    queue<span class="op">.</span>add((_playerX<span class="op">,</span> _playerY));</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>    distances[_playerY][_playerX] <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> directions <span class="op">=</span> <span class="op">&lt;</span>(<span class="dt">int</span><span class="op">,</span> <span class="dt">int</span>)<span class="op">&gt;</span>[</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>      (<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">,</span></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">,</span></span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>    ];</span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span>;</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (index <span class="op">&lt;</span> queue<span class="op">.</span>length) <span class="op">{</span></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>      <span class="at">final</span> (x<span class="op">,</span> y) <span class="op">=</span> queue[index<span class="op">++</span>];</span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="at">final</span> (dx<span class="op">,</span> dy) <span class="kw">in</span> directions) <span class="op">{</span></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>        <span class="at">final</span> nx <span class="op">=</span> x <span class="op">+</span> dx;</span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>        <span class="at">final</span> ny <span class="op">=</span> y <span class="op">+</span> dy;</span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (_isOpen(nx<span class="op">,</span> ny) <span class="op">&amp;&amp;</span> distances[ny][nx] <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">{</span></span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a>          distances[ny][nx] <span class="op">=</span> distances[y][x] <span class="op">+</span> <span class="dv">1</span>;</span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>          queue<span class="op">.</span>add((nx<span class="op">,</span> ny));</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Choose the reachable adjacent tile closest to the player.</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> bestX <span class="op">=</span> _monsterX;</span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> bestY <span class="op">=</span> _monsterY;</span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> bestDistance <span class="op">=</span> <span class="dv">999999</span>;</span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="at">final</span> (dx<span class="op">,</span> dy) <span class="kw">in</span> directions) <span class="op">{</span></span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>      <span class="at">final</span> nx <span class="op">=</span> _monsterX <span class="op">+</span> dx;</span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>      <span class="at">final</span> ny <span class="op">=</span> _monsterY <span class="op">+</span> dy;</span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="op">!</span>_isOpen(nx<span class="op">,</span> ny)) <span class="cf">continue</span>;</span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>      <span class="at">final</span> distance <span class="op">=</span> distances[ny][nx];</span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (distance <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> distance <span class="op">&lt;</span> bestDistance) <span class="op">{</span></span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a>        bestDistance <span class="op">=</span> distance;</span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a>        bestX <span class="op">=</span> nx;</span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a>        bestY <span class="op">=</span> ny;</span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a>    _monsterX <span class="op">=</span> bestX;</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>    _monsterY <span class="op">=</span> bestY;</span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _checkCollision() <span class="op">{</span></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (_playerX <span class="op">==</span> _monsterX <span class="op">&amp;&amp;</span> _playerY <span class="op">==</span> _monsterY) <span class="op">{</span></span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>      _lives<span class="op">--</span>;</span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (_lives <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="op">{</span></span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a>        _finishGame(<span class="cn">false</span>);</span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span>;</span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Respawn the player after being caught.</span></span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>      _playerX <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a>      _playerY <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _finishGame(<span class="dt">bool</span> won) <span class="op">{</span></span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a>    _playing <span class="op">=</span> <span class="cn">false</span>;</span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a>    _won <span class="op">=</span> won;</span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a>    _timer<span class="op">?.</span>cancel();</span>
+<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _handleKey(KeyEvent event) <span class="op">{</span></span>
+<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (event <span class="kw">is</span><span class="op">!</span> KeyDownEvent) <span class="kw">return</span>;</span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> key <span class="op">=</span> event<span class="op">.</span>logicalKey;</span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>keyR <span class="op">&amp;&amp;</span> <span class="op">!</span>_playing) <span class="op">{</span></span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a>      _restartGame();</span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span>;</span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>_playing) <span class="kw">return</span>;</span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>arrowUp <span class="op">||</span></span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a>        key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>keyW) <span class="op">{</span></span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a>      _movePlayer(<span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>);</span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>arrowDown <span class="op">||</span></span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a>        key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>keyS) <span class="op">{</span></span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a>      _movePlayer(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>);</span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>arrowLeft <span class="op">||</span></span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>        key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>keyA) <span class="op">{</span></span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>      _movePlayer(<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>);</span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>arrowRight <span class="op">||</span></span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a>        key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>keyD) <span class="op">{</span></span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a>      _movePlayer(<span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>);</span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (key <span class="op">==</span> LogicalKeyboardKey<span class="op">.</span>space) <span class="op">{</span></span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="op">!</span>_started) _startGame();</span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> dispose() <span class="op">{</span></span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a>    _timer<span class="op">?.</span>cancel();</span>
+<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a>    _focusNode<span class="op">.</span>dispose();</span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span><span class="op">.</span>dispose();</span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a>  Widget build(BuildContext context) <span class="op">{</span></span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> KeyboardListener(</span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a>      focusNode<span class="op">:</span> _focusNode<span class="op">,</span></span>
+<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a>      autofocus<span class="op">:</span> <span class="cn">true</span><span class="op">,</span></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a>      onKeyEvent<span class="op">:</span> _handleKey<span class="op">,</span></span>
+<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a>      child<span class="op">:</span> Scaffold(</span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a>        body<span class="op">:</span> SafeArea(</span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a>          child<span class="op">:</span> Column(</span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a>            children<span class="op">:</span> [</span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">12</span>)<span class="op">,</span></span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> Text(</span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;NEON CYBER MAZE&#39;</span><span class="op">,</span></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a>                style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a>                  fontSize<span class="op">:</span> <span class="dv">23</span><span class="op">,</span></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a>                  fontWeight<span class="op">:</span> FontWeight<span class="op">.</span>w900<span class="op">,</span></span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a>                  letterSpacing<span class="op">:</span> <span class="fl">2.5</span><span class="op">,</span></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">:</span> neonCyan<span class="op">,</span></span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a>                  shadows<span class="op">:</span> [</span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a>                    Shadow(color<span class="op">:</span> neonCyan<span class="op">,</span> blurRadius<span class="op">:</span> <span class="dv">15</span>)<span class="op">,</span></span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a>                  ]<span class="op">,</span></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a>              )<span class="op">,</span></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> Text(</span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MONSTER ESCAPE PROTOCOL&#39;</span><span class="op">,</span></span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a>                style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a>                  fontSize<span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a>                  letterSpacing<span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">:</span> neonPurple<span class="op">,</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a>              )<span class="op">,</span></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">14</span>)<span class="op">,</span></span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a>              Padding(</span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a>                padding<span class="op">:</span> <span class="at">const</span> EdgeInsets<span class="op">.</span>symmetric(horizontal<span class="op">:</span> <span class="dv">16</span>)<span class="op">,</span></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>                child<span class="op">:</span> Row(</span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>                  mainAxisAlignment<span class="op">:</span> MainAxisAlignment<span class="op">.</span>spaceAround<span class="op">,</span></span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a>                  children<span class="op">:</span> [</span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a>                    _hud(<span class="st">&#39;SCORE&#39;</span><span class="op">,</span> <span class="st">&#39;$_score&#39;</span><span class="op">,</span> neonCyan)<span class="op">,</span></span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a>                    _hud(<span class="st">&#39;TIME&#39;</span><span class="op">,</span> <span class="st">&#39;$_secondsLeft&#39;</span><span class="op">,</span> neonPink)<span class="op">,</span></span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a>                    _hud(<span class="st">&#39;LIVES&#39;</span><span class="op">,</span> <span class="st">&#39;$_lives&#39;</span><span class="op">,</span> neonPurple)<span class="op">,</span></span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a>                  ]<span class="op">,</span></span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a>              )<span class="op">,</span></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">12</span>)<span class="op">,</span></span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a>              Expanded(</span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a>                child<span class="op">:</span> Center(</span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a>                  child<span class="op">:</span> LayoutBuilder(</span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a>                    builder<span class="op">:</span> (context<span class="op">,</span> constraints) <span class="op">{</span></span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a>                      <span class="at">final</span> side <span class="op">=</span> math<span class="op">.</span>min(</span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a>                        constraints<span class="op">.</span>maxWidth<span class="op">,</span></span>
+<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a>                        constraints<span class="op">.</span>maxHeight<span class="op">,</span></span>
+<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a>                      );</span>
+<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a>                      <span class="kw">return</span> SizedBox(</span>
+<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a>                        width<span class="op">:</span> side<span class="op">,</span></span>
+<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a>                        height<span class="op">:</span> side<span class="op">,</span></span>
+<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a>                        child<span class="op">:</span> CustomPaint(</span>
+<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a>                          painter<span class="op">:</span> MazePainter(</span>
+<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a>                            maze<span class="op">:</span> _maze<span class="op">,</span></span>
+<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a>                            playerX<span class="op">:</span> _playerX<span class="op">,</span></span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a>                            playerY<span class="op">:</span> _playerY<span class="op">,</span></span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a>                            monsterX<span class="op">:</span> _monsterX<span class="op">,</span></span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a>                            monsterY<span class="op">:</span> _monsterY<span class="op">,</span></span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a>                          )<span class="op">,</span></span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a>                        )<span class="op">,</span></span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>                      );</span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>                    <span class="op">},</span></span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">,</span></span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a>              )<span class="op">,</span></span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="op">!</span>_started <span class="op">&amp;&amp;</span> _playing)</span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a>                <span class="at">const</span> Text(</span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;COLLECT ALL ENERGY ORBS!&#39;</span><span class="op">,</span></span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a>                  style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">:</span> neonCyan<span class="op">,</span></span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a>                    fontSize<span class="op">:</span> <span class="dv">12</span><span class="op">,</span></span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a>                    letterSpacing<span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
+<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">,</span></span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="op">!</span>_playing) <span class="op">...</span>[</span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a>                Text(</span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a>                  _won <span class="op">?</span> <span class="st">&#39;LEVEL CLEARED!&#39;</span> <span class="op">:</span> <span class="st">&#39;SYSTEM FAILURE&#39;</span><span class="op">,</span></span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a>                  style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">:</span> _won <span class="op">?</span> neonCyan <span class="op">:</span> neonPink<span class="op">,</span></span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>                    fontSize<span class="op">:</span> <span class="dv">20</span><span class="op">,</span></span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>                    fontWeight<span class="op">:</span> FontWeight<span class="op">.</span>bold<span class="op">,</span></span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a>                    shadows<span class="op">:</span> [</span>
+<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a>                      Shadow(</span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a>                        color<span class="op">:</span> _won <span class="op">?</span> neonCyan <span class="op">:</span> neonPink<span class="op">,</span></span>
+<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a>                        blurRadius<span class="op">:</span> <span class="dv">12</span><span class="op">,</span></span>
+<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a>                      )<span class="op">,</span></span>
+<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a>                    ]<span class="op">,</span></span>
+<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">,</span></span>
+<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a>                <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a>                Text(</span>
+<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&#39;Final score: $_score&#39;</span><span class="op">,</span></span>
+<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a>                  style<span class="op">:</span> <span class="at">const</span> TextStyle(color<span class="op">:</span> Colors<span class="op">.</span>white70)<span class="op">,</span></span>
+<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a>                <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-422"><a href="#cb6-422" aria-hidden="true" tabindex="-1"></a>                ElevatedButton<span class="op">.</span>icon(</span>
+<span id="cb6-423"><a href="#cb6-423" aria-hidden="true" tabindex="-1"></a>                  onPressed<span class="op">:</span> _restartGame<span class="op">,</span></span>
+<span id="cb6-424"><a href="#cb6-424" aria-hidden="true" tabindex="-1"></a>                  icon<span class="op">:</span> <span class="at">const</span> Icon(Icons<span class="op">.</span>refresh)<span class="op">,</span></span>
+<span id="cb6-425"><a href="#cb6-425" aria-hidden="true" tabindex="-1"></a>                  label<span class="op">:</span> <span class="at">const</span> Text(<span class="st">&#39;PLAY AGAIN&#39;</span>)<span class="op">,</span></span>
+<span id="cb6-426"><a href="#cb6-426" aria-hidden="true" tabindex="-1"></a>                  style<span class="op">:</span> ElevatedButton<span class="op">.</span>styleFrom(</span>
+<span id="cb6-427"><a href="#cb6-427" aria-hidden="true" tabindex="-1"></a>                    backgroundColor<span class="op">:</span> neonPurple<span class="op">,</span></span>
+<span id="cb6-428"><a href="#cb6-428" aria-hidden="true" tabindex="-1"></a>                    foregroundColor<span class="op">:</span> Colors<span class="op">.</span>white<span class="op">,</span></span>
+<span id="cb6-429"><a href="#cb6-429" aria-hidden="true" tabindex="-1"></a>                  )<span class="op">,</span></span>
+<span id="cb6-430"><a href="#cb6-430" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-431"><a href="#cb6-431" aria-hidden="true" tabindex="-1"></a>              ]<span class="op">,</span></span>
+<span id="cb6-432"><a href="#cb6-432" aria-hidden="true" tabindex="-1"></a>              _buildControls()<span class="op">,</span></span>
+<span id="cb6-433"><a href="#cb6-433" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-434"><a href="#cb6-434" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> Text(</span>
+<span id="cb6-435"><a href="#cb6-435" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;ARROWS / WASD   •   R TO RESTART AFTER GAME OVER&#39;</span><span class="op">,</span></span>
+<span id="cb6-436"><a href="#cb6-436" aria-hidden="true" tabindex="-1"></a>                textAlign<span class="op">:</span> TextAlign<span class="op">.</span>center<span class="op">,</span></span>
+<span id="cb6-437"><a href="#cb6-437" aria-hidden="true" tabindex="-1"></a>                style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-438"><a href="#cb6-438" aria-hidden="true" tabindex="-1"></a>                  fontSize<span class="op">:</span> <span class="dv">9</span><span class="op">,</span></span>
+<span id="cb6-439"><a href="#cb6-439" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">:</span> Colors<span class="op">.</span>white38<span class="op">,</span></span>
+<span id="cb6-440"><a href="#cb6-440" aria-hidden="true" tabindex="-1"></a>                  letterSpacing<span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span></span>
+<span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a>                )<span class="op">,</span></span>
+<span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a>              )<span class="op">,</span></span>
+<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-444"><a href="#cb6-444" aria-hidden="true" tabindex="-1"></a>            ]<span class="op">,</span></span>
+<span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a>          )<span class="op">,</span></span>
+<span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a>        )<span class="op">,</span></span>
+<span id="cb6-447"><a href="#cb6-447" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb6-448"><a href="#cb6-448" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-449"><a href="#cb6-449" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-450"><a href="#cb6-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-451"><a href="#cb6-451" aria-hidden="true" tabindex="-1"></a>  Widget _hud(<span class="dt">String</span> label<span class="op">,</span> <span class="dt">String</span> value<span class="op">,</span> Color color) <span class="op">{</span></span>
+<span id="cb6-452"><a href="#cb6-452" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> Column(</span>
+<span id="cb6-453"><a href="#cb6-453" aria-hidden="true" tabindex="-1"></a>      children<span class="op">:</span> [</span>
+<span id="cb6-454"><a href="#cb6-454" aria-hidden="true" tabindex="-1"></a>        Text(</span>
+<span id="cb6-455"><a href="#cb6-455" aria-hidden="true" tabindex="-1"></a>          label<span class="op">,</span></span>
+<span id="cb6-456"><a href="#cb6-456" aria-hidden="true" tabindex="-1"></a>          style<span class="op">:</span> <span class="at">const</span> TextStyle(</span>
+<span id="cb6-457"><a href="#cb6-457" aria-hidden="true" tabindex="-1"></a>            color<span class="op">:</span> Colors<span class="op">.</span>white54<span class="op">,</span></span>
+<span id="cb6-458"><a href="#cb6-458" aria-hidden="true" tabindex="-1"></a>            fontSize<span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb6-459"><a href="#cb6-459" aria-hidden="true" tabindex="-1"></a>            letterSpacing<span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb6-460"><a href="#cb6-460" aria-hidden="true" tabindex="-1"></a>          )<span class="op">,</span></span>
+<span id="cb6-461"><a href="#cb6-461" aria-hidden="true" tabindex="-1"></a>        )<span class="op">,</span></span>
+<span id="cb6-462"><a href="#cb6-462" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> SizedBox(height<span class="op">:</span> <span class="dv">3</span>)<span class="op">,</span></span>
+<span id="cb6-463"><a href="#cb6-463" aria-hidden="true" tabindex="-1"></a>        Text(</span>
+<span id="cb6-464"><a href="#cb6-464" aria-hidden="true" tabindex="-1"></a>          value<span class="op">,</span></span>
+<span id="cb6-465"><a href="#cb6-465" aria-hidden="true" tabindex="-1"></a>          style<span class="op">:</span> TextStyle(</span>
+<span id="cb6-466"><a href="#cb6-466" aria-hidden="true" tabindex="-1"></a>            color<span class="op">:</span> color<span class="op">,</span></span>
+<span id="cb6-467"><a href="#cb6-467" aria-hidden="true" tabindex="-1"></a>            fontSize<span class="op">:</span> <span class="dv">22</span><span class="op">,</span></span>
+<span id="cb6-468"><a href="#cb6-468" aria-hidden="true" tabindex="-1"></a>            fontWeight<span class="op">:</span> FontWeight<span class="op">.</span>bold<span class="op">,</span></span>
+<span id="cb6-469"><a href="#cb6-469" aria-hidden="true" tabindex="-1"></a>            shadows<span class="op">:</span> [Shadow(color<span class="op">:</span> color<span class="op">,</span> blurRadius<span class="op">:</span> <span class="dv">10</span>)]<span class="op">,</span></span>
+<span id="cb6-470"><a href="#cb6-470" aria-hidden="true" tabindex="-1"></a>          )<span class="op">,</span></span>
+<span id="cb6-471"><a href="#cb6-471" aria-hidden="true" tabindex="-1"></a>        )<span class="op">,</span></span>
+<span id="cb6-472"><a href="#cb6-472" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">,</span></span>
+<span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a>  Widget _buildControls() <span class="op">{</span></span>
+<span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> Padding(</span>
+<span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a>      padding<span class="op">:</span> <span class="at">const</span> EdgeInsets<span class="op">.</span>only(top<span class="op">:</span> <span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a>      child<span class="op">:</span> Column(</span>
+<span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a>        mainAxisSize<span class="op">:</span> MainAxisSize<span class="op">.</span>min<span class="op">,</span></span>
+<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a>        children<span class="op">:</span> [</span>
+<span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a>          _directionButton(Icons<span class="op">.</span>keyboard_arrow_up<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a>          Row(</span>
+<span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a>            mainAxisSize<span class="op">:</span> MainAxisSize<span class="op">.</span>min<span class="op">,</span></span>
+<span id="cb6-485"><a href="#cb6-485" aria-hidden="true" tabindex="-1"></a>            children<span class="op">:</span> [</span>
+<span id="cb6-486"><a href="#cb6-486" aria-hidden="true" tabindex="-1"></a>              _directionButton(Icons<span class="op">.</span>keyboard_arrow_left<span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">,</span></span>
+<span id="cb6-487"><a href="#cb6-487" aria-hidden="true" tabindex="-1"></a>              <span class="at">const</span> SizedBox(width<span class="op">:</span> <span class="dv">52</span>)<span class="op">,</span></span>
+<span id="cb6-488"><a href="#cb6-488" aria-hidden="true" tabindex="-1"></a>              _directionButton(Icons<span class="op">.</span>keyboard_arrow_right<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">,</span></span>
+<span id="cb6-489"><a href="#cb6-489" aria-hidden="true" tabindex="-1"></a>            ]<span class="op">,</span></span>
+<span id="cb6-490"><a href="#cb6-490" aria-hidden="true" tabindex="-1"></a>          )<span class="op">,</span></span>
+<span id="cb6-491"><a href="#cb6-491" aria-hidden="true" tabindex="-1"></a>          _directionButton(Icons<span class="op">.</span>keyboard_arrow_down<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-492"><a href="#cb6-492" aria-hidden="true" tabindex="-1"></a>        ]<span class="op">,</span></span>
+<span id="cb6-493"><a href="#cb6-493" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a>  Widget _directionButton(IconData icon<span class="op">,</span> <span class="dt">int</span> dx<span class="op">,</span> <span class="dt">int</span> dy) <span class="op">{</span></span>
+<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> SizedBox(</span>
+<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a>      width<span class="op">:</span> <span class="dv">46</span><span class="op">,</span></span>
+<span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a>      height<span class="op">:</span> <span class="dv">38</span><span class="op">,</span></span>
+<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a>      child<span class="op">:</span> Padding(</span>
+<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a>        padding<span class="op">:</span> <span class="at">const</span> EdgeInsets<span class="op">.</span>all(<span class="dv">2</span>)<span class="op">,</span></span>
+<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a>        child<span class="op">:</span> OutlinedButton(</span>
+<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a>          onPressed<span class="op">:</span> _playing <span class="op">?</span> () <span class="op">=&gt;</span> _movePlayer(dx<span class="op">,</span> dy) <span class="op">:</span> <span class="cn">null</span><span class="op">,</span></span>
+<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a>          style<span class="op">:</span> OutlinedButton<span class="op">.</span>styleFrom(</span>
+<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a>            padding<span class="op">:</span> EdgeInsets<span class="op">.</span>zero<span class="op">,</span></span>
+<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a>            foregroundColor<span class="op">:</span> neonCyan<span class="op">,</span></span>
+<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a>            side<span class="op">:</span> <span class="at">const</span> BorderSide(color<span class="op">:</span> neonCyan<span class="op">,</span> width<span class="op">:</span> <span class="dv">1</span>)<span class="op">,</span></span>
+<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a>            shape<span class="op">:</span> RoundedRectangleBorder(</span>
+<span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a>              borderRadius<span class="op">:</span> BorderRadius<span class="op">.</span>circular(<span class="dv">8</span>)<span class="op">,</span></span>
+<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a>            )<span class="op">,</span></span>
+<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a>          )<span class="op">,</span></span>
+<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a>          child<span class="op">:</span> Icon(icon<span class="op">,</span> size<span class="op">:</span> <span class="dv">26</span>)<span class="op">,</span></span>
+<span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a>        )<span class="op">,</span></span>
+<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MazePainter <span class="kw">extends</span> CustomPainter <span class="op">{</span></span>
+<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> <span class="dt">List</span><span class="op">&lt;</span><span class="dt">List</span><span class="op">&lt;</span><span class="dt">String</span><span class="op">&gt;&gt;</span> maze;</span>
+<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> <span class="dt">int</span> playerX;</span>
+<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> <span class="dt">int</span> playerY;</span>
+<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> <span class="dt">int</span> monsterX;</span>
+<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a>  <span class="at">final</span> <span class="dt">int</span> monsterY;</span>
+<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a>  MazePainter(<span class="op">{</span></span>
+<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a>    required <span class="kw">this</span><span class="op">.</span>maze<span class="op">,</span></span>
+<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a>    required <span class="kw">this</span><span class="op">.</span>playerX<span class="op">,</span></span>
+<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a>    required <span class="kw">this</span><span class="op">.</span>playerY<span class="op">,</span></span>
+<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a>    required <span class="kw">this</span><span class="op">.</span>monsterX<span class="op">,</span></span>
+<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a>    required <span class="kw">this</span><span class="op">.</span>monsterY<span class="op">,</span></span>
+<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>);</span>
+<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> paint(Canvas canvas<span class="op">,</span> Size size) <span class="op">{</span></span>
+<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> rows <span class="op">=</span> maze<span class="op">.</span>length;</span>
+<span id="cb6-538"><a href="#cb6-538" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> cols <span class="op">=</span> maze[<span class="dv">0</span>]<span class="op">.</span>length;</span>
+<span id="cb6-539"><a href="#cb6-539" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> tileW <span class="op">=</span> size<span class="op">.</span>width <span class="op">/</span> cols;</span>
+<span id="cb6-540"><a href="#cb6-540" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> tileH <span class="op">=</span> size<span class="op">.</span>height <span class="op">/</span> rows;</span>
+<span id="cb6-541"><a href="#cb6-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-542"><a href="#cb6-542" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> background <span class="op">=</span> Paint()<span class="op">..</span>color <span class="op">=</span> <span class="at">const</span> Color(<span class="dv">0xFF070B1B</span>);</span>
+<span id="cb6-543"><a href="#cb6-543" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawRect(Offset<span class="op">.</span>zero <span class="op">&amp;</span> size<span class="op">,</span> background);</span>
+<span id="cb6-544"><a href="#cb6-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-545"><a href="#cb6-545" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Draw walls and collectible orbs.</span></span>
+<span id="cb6-546"><a href="#cb6-546" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span>; y <span class="op">&lt;</span> rows; y<span class="op">++</span>) <span class="op">{</span></span>
+<span id="cb6-547"><a href="#cb6-547" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span>; x <span class="op">&lt;</span> cols; x<span class="op">++</span>) <span class="op">{</span></span>
+<span id="cb6-548"><a href="#cb6-548" aria-hidden="true" tabindex="-1"></a>        <span class="at">final</span> rect <span class="op">=</span> Rect<span class="op">.</span>fromLTWH(</span>
+<span id="cb6-549"><a href="#cb6-549" aria-hidden="true" tabindex="-1"></a>          x <span class="op">*</span> tileW<span class="op">,</span></span>
+<span id="cb6-550"><a href="#cb6-550" aria-hidden="true" tabindex="-1"></a>          y <span class="op">*</span> tileH<span class="op">,</span></span>
+<span id="cb6-551"><a href="#cb6-551" aria-hidden="true" tabindex="-1"></a>          tileW<span class="op">,</span></span>
+<span id="cb6-552"><a href="#cb6-552" aria-hidden="true" tabindex="-1"></a>          tileH<span class="op">,</span></span>
+<span id="cb6-553"><a href="#cb6-553" aria-hidden="true" tabindex="-1"></a>        );</span>
+<span id="cb6-554"><a href="#cb6-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-555"><a href="#cb6-555" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (maze[y][x] <span class="op">==</span> <span class="st">&#39;#&#39;</span>) <span class="op">{</span></span>
+<span id="cb6-556"><a href="#cb6-556" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> wallRect <span class="op">=</span> rect<span class="op">.</span>deflate(math<span class="op">.</span>min(tileW<span class="op">,</span> tileH) <span class="op">*</span> <span class="fl">0.09</span>);</span>
+<span id="cb6-557"><a href="#cb6-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-558"><a href="#cb6-558" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> glowPaint <span class="op">=</span> Paint()</span>
+<span id="cb6-559"><a href="#cb6-559" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>color <span class="op">=</span> neonCyan<span class="op">.</span>withValues(alpha<span class="op">:</span> <span class="fl">0.18</span>)</span>
+<span id="cb6-560"><a href="#cb6-560" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>maskFilter <span class="op">=</span> <span class="at">const</span> MaskFilter<span class="op">.</span>blur(BlurStyle<span class="op">.</span>normal<span class="op">,</span> <span class="dv">5</span>);</span>
+<span id="cb6-561"><a href="#cb6-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-562"><a href="#cb6-562" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawRRect(</span>
+<span id="cb6-563"><a href="#cb6-563" aria-hidden="true" tabindex="-1"></a>            RRect<span class="op">.</span>fromRectAndRadius(</span>
+<span id="cb6-564"><a href="#cb6-564" aria-hidden="true" tabindex="-1"></a>              wallRect<span class="op">,</span></span>
+<span id="cb6-565"><a href="#cb6-565" aria-hidden="true" tabindex="-1"></a>              Radius<span class="op">.</span>circular(tileW <span class="op">*</span> <span class="fl">0.18</span>)<span class="op">,</span></span>
+<span id="cb6-566"><a href="#cb6-566" aria-hidden="true" tabindex="-1"></a>            )<span class="op">,</span></span>
+<span id="cb6-567"><a href="#cb6-567" aria-hidden="true" tabindex="-1"></a>            glowPaint<span class="op">,</span></span>
+<span id="cb6-568"><a href="#cb6-568" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-569"><a href="#cb6-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-570"><a href="#cb6-570" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> wallPaint <span class="op">=</span> Paint()</span>
+<span id="cb6-571"><a href="#cb6-571" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>color <span class="op">=</span> <span class="at">const</span> Color(<span class="dv">0xFF102E49</span>)</span>
+<span id="cb6-572"><a href="#cb6-572" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>style <span class="op">=</span> PaintingStyle<span class="op">.</span>fill;</span>
+<span id="cb6-573"><a href="#cb6-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-574"><a href="#cb6-574" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawRRect(</span>
+<span id="cb6-575"><a href="#cb6-575" aria-hidden="true" tabindex="-1"></a>            RRect<span class="op">.</span>fromRectAndRadius(</span>
+<span id="cb6-576"><a href="#cb6-576" aria-hidden="true" tabindex="-1"></a>              wallRect<span class="op">,</span></span>
+<span id="cb6-577"><a href="#cb6-577" aria-hidden="true" tabindex="-1"></a>              Radius<span class="op">.</span>circular(tileW <span class="op">*</span> <span class="fl">0.18</span>)<span class="op">,</span></span>
+<span id="cb6-578"><a href="#cb6-578" aria-hidden="true" tabindex="-1"></a>            )<span class="op">,</span></span>
+<span id="cb6-579"><a href="#cb6-579" aria-hidden="true" tabindex="-1"></a>            wallPaint<span class="op">,</span></span>
+<span id="cb6-580"><a href="#cb6-580" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-581"><a href="#cb6-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-582"><a href="#cb6-582" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> borderPaint <span class="op">=</span> Paint()</span>
+<span id="cb6-583"><a href="#cb6-583" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>color <span class="op">=</span> neonCyan<span class="op">.</span>withValues(alpha<span class="op">:</span> <span class="fl">0.85</span>)</span>
+<span id="cb6-584"><a href="#cb6-584" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>style <span class="op">=</span> PaintingStyle<span class="op">.</span>stroke</span>
+<span id="cb6-585"><a href="#cb6-585" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>strokeWidth <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb6-586"><a href="#cb6-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-587"><a href="#cb6-587" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawRRect(</span>
+<span id="cb6-588"><a href="#cb6-588" aria-hidden="true" tabindex="-1"></a>            RRect<span class="op">.</span>fromRectAndRadius(</span>
+<span id="cb6-589"><a href="#cb6-589" aria-hidden="true" tabindex="-1"></a>              wallRect<span class="op">,</span></span>
+<span id="cb6-590"><a href="#cb6-590" aria-hidden="true" tabindex="-1"></a>              Radius<span class="op">.</span>circular(tileW <span class="op">*</span> <span class="fl">0.18</span>)<span class="op">,</span></span>
+<span id="cb6-591"><a href="#cb6-591" aria-hidden="true" tabindex="-1"></a>            )<span class="op">,</span></span>
+<span id="cb6-592"><a href="#cb6-592" aria-hidden="true" tabindex="-1"></a>            borderPaint<span class="op">,</span></span>
+<span id="cb6-593"><a href="#cb6-593" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-594"><a href="#cb6-594" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (maze[y][x] <span class="op">==</span> <span class="st">&#39;.&#39;</span>) <span class="op">{</span></span>
+<span id="cb6-595"><a href="#cb6-595" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> center <span class="op">=</span> Offset(</span>
+<span id="cb6-596"><a href="#cb6-596" aria-hidden="true" tabindex="-1"></a>            (x <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileW<span class="op">,</span></span>
+<span id="cb6-597"><a href="#cb6-597" aria-hidden="true" tabindex="-1"></a>            (y <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileH<span class="op">,</span></span>
+<span id="cb6-598"><a href="#cb6-598" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-599"><a href="#cb6-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-600"><a href="#cb6-600" aria-hidden="true" tabindex="-1"></a>          <span class="at">final</span> glow <span class="op">=</span> Paint()</span>
+<span id="cb6-601"><a href="#cb6-601" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>color <span class="op">=</span> neonPink<span class="op">.</span>withValues(alpha<span class="op">:</span> <span class="fl">0.5</span>)</span>
+<span id="cb6-602"><a href="#cb6-602" aria-hidden="true" tabindex="-1"></a>            <span class="op">..</span>maskFilter <span class="op">=</span> <span class="at">const</span> MaskFilter<span class="op">.</span>blur(BlurStyle<span class="op">.</span>normal<span class="op">,</span> <span class="dv">5</span>);</span>
+<span id="cb6-603"><a href="#cb6-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-604"><a href="#cb6-604" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawCircle(center<span class="op">,</span> tileW <span class="op">*</span> <span class="fl">0.23</span><span class="op">,</span> glow);</span>
+<span id="cb6-605"><a href="#cb6-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-606"><a href="#cb6-606" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-607"><a href="#cb6-607" aria-hidden="true" tabindex="-1"></a>            center<span class="op">,</span></span>
+<span id="cb6-608"><a href="#cb6-608" aria-hidden="true" tabindex="-1"></a>            tileW <span class="op">*</span> <span class="fl">0.105</span><span class="op">,</span></span>
+<span id="cb6-609"><a href="#cb6-609" aria-hidden="true" tabindex="-1"></a>            Paint()<span class="op">..</span>color <span class="op">=</span> Colors<span class="op">.</span>white<span class="op">,</span></span>
+<span id="cb6-610"><a href="#cb6-610" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-611"><a href="#cb6-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-612"><a href="#cb6-612" aria-hidden="true" tabindex="-1"></a>          canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-613"><a href="#cb6-613" aria-hidden="true" tabindex="-1"></a>            center<span class="op">,</span></span>
+<span id="cb6-614"><a href="#cb6-614" aria-hidden="true" tabindex="-1"></a>            tileW <span class="op">*</span> <span class="fl">0.07</span><span class="op">,</span></span>
+<span id="cb6-615"><a href="#cb6-615" aria-hidden="true" tabindex="-1"></a>            Paint()<span class="op">..</span>color <span class="op">=</span> neonPink<span class="op">,</span></span>
+<span id="cb6-616"><a href="#cb6-616" aria-hidden="true" tabindex="-1"></a>          );</span>
+<span id="cb6-617"><a href="#cb6-617" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-618"><a href="#cb6-618" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb6-619"><a href="#cb6-619" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-620"><a href="#cb6-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-621"><a href="#cb6-621" aria-hidden="true" tabindex="-1"></a>    _drawPlayer(canvas<span class="op">,</span> tileW<span class="op">,</span> tileH);</span>
+<span id="cb6-622"><a href="#cb6-622" aria-hidden="true" tabindex="-1"></a>    _drawMonster(canvas<span class="op">,</span> tileW<span class="op">,</span> tileH);</span>
+<span id="cb6-623"><a href="#cb6-623" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-624"><a href="#cb6-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-625"><a href="#cb6-625" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _drawPlayer(Canvas canvas<span class="op">,</span> <span class="dt">double</span> tileW<span class="op">,</span> <span class="dt">double</span> tileH) <span class="op">{</span></span>
+<span id="cb6-626"><a href="#cb6-626" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> center <span class="op">=</span> Offset(</span>
+<span id="cb6-627"><a href="#cb6-627" aria-hidden="true" tabindex="-1"></a>      (playerX <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileW<span class="op">,</span></span>
+<span id="cb6-628"><a href="#cb6-628" aria-hidden="true" tabindex="-1"></a>      (playerY <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileH<span class="op">,</span></span>
+<span id="cb6-629"><a href="#cb6-629" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-630"><a href="#cb6-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-631"><a href="#cb6-631" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> radius <span class="op">=</span> math<span class="op">.</span>min(tileW<span class="op">,</span> tileH) <span class="op">*</span> <span class="fl">0.32</span>;</span>
+<span id="cb6-632"><a href="#cb6-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-633"><a href="#cb6-633" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> glow <span class="op">=</span> Paint()</span>
+<span id="cb6-634"><a href="#cb6-634" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>color <span class="op">=</span> neonCyan<span class="op">.</span>withValues(alpha<span class="op">:</span> <span class="fl">0.6</span>)</span>
+<span id="cb6-635"><a href="#cb6-635" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>maskFilter <span class="op">=</span> <span class="at">const</span> MaskFilter<span class="op">.</span>blur(BlurStyle<span class="op">.</span>normal<span class="op">,</span> <span class="dv">7</span>);</span>
+<span id="cb6-636"><a href="#cb6-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-637"><a href="#cb6-637" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(center<span class="op">,</span> radius <span class="op">*</span> <span class="fl">1.3</span><span class="op">,</span> glow);</span>
+<span id="cb6-638"><a href="#cb6-638" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(center<span class="op">,</span> radius<span class="op">,</span> Paint()<span class="op">..</span>color <span class="op">=</span> neonCyan);</span>
+<span id="cb6-639"><a href="#cb6-639" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-640"><a href="#cb6-640" aria-hidden="true" tabindex="-1"></a>      center<span class="op">,</span></span>
+<span id="cb6-641"><a href="#cb6-641" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.53</span><span class="op">,</span></span>
+<span id="cb6-642"><a href="#cb6-642" aria-hidden="true" tabindex="-1"></a>      Paint()<span class="op">..</span>color <span class="op">=</span> <span class="at">const</span> Color(<span class="dv">0xFF063347</span>)<span class="op">,</span></span>
+<span id="cb6-643"><a href="#cb6-643" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-644"><a href="#cb6-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-645"><a href="#cb6-645" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-646"><a href="#cb6-646" aria-hidden="true" tabindex="-1"></a>      center<span class="op">,</span></span>
+<span id="cb6-647"><a href="#cb6-647" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.18</span><span class="op">,</span></span>
+<span id="cb6-648"><a href="#cb6-648" aria-hidden="true" tabindex="-1"></a>      Paint()<span class="op">..</span>color <span class="op">=</span> Colors<span class="op">.</span>white<span class="op">,</span></span>
+<span id="cb6-649"><a href="#cb6-649" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-650"><a href="#cb6-650" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-651"><a href="#cb6-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-652"><a href="#cb6-652" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> _drawMonster(Canvas canvas<span class="op">,</span> <span class="dt">double</span> tileW<span class="op">,</span> <span class="dt">double</span> tileH) <span class="op">{</span></span>
+<span id="cb6-653"><a href="#cb6-653" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> center <span class="op">=</span> Offset(</span>
+<span id="cb6-654"><a href="#cb6-654" aria-hidden="true" tabindex="-1"></a>      (monsterX <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileW<span class="op">,</span></span>
+<span id="cb6-655"><a href="#cb6-655" aria-hidden="true" tabindex="-1"></a>      (monsterY <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> tileH<span class="op">,</span></span>
+<span id="cb6-656"><a href="#cb6-656" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-657"><a href="#cb6-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-658"><a href="#cb6-658" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> radius <span class="op">=</span> math<span class="op">.</span>min(tileW<span class="op">,</span> tileH) <span class="op">*</span> <span class="fl">0.34</span>;</span>
+<span id="cb6-659"><a href="#cb6-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-660"><a href="#cb6-660" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> glow <span class="op">=</span> Paint()</span>
+<span id="cb6-661"><a href="#cb6-661" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>color <span class="op">=</span> neonPurple<span class="op">.</span>withValues(alpha<span class="op">:</span> <span class="fl">0.7</span>)</span>
+<span id="cb6-662"><a href="#cb6-662" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>maskFilter <span class="op">=</span> <span class="at">const</span> MaskFilter<span class="op">.</span>blur(BlurStyle<span class="op">.</span>normal<span class="op">,</span> <span class="dv">8</span>);</span>
+<span id="cb6-663"><a href="#cb6-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-664"><a href="#cb6-664" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(center<span class="op">,</span> radius <span class="op">*</span> <span class="fl">1.3</span><span class="op">,</span> glow);</span>
+<span id="cb6-665"><a href="#cb6-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-666"><a href="#cb6-666" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> body <span class="op">=</span> Path()</span>
+<span id="cb6-667"><a href="#cb6-667" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>moveTo(center<span class="op">.</span>dx <span class="op">-</span> radius<span class="op">,</span> center<span class="op">.</span>dy <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.8</span>)</span>
+<span id="cb6-668"><a href="#cb6-668" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>lineTo(center<span class="op">.</span>dx <span class="op">-</span> radius<span class="op">,</span> center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.15</span>)</span>
+<span id="cb6-669"><a href="#cb6-669" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>quadraticBezierTo(</span>
+<span id="cb6-670"><a href="#cb6-670" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dx <span class="op">-</span> radius<span class="op">,</span></span>
+<span id="cb6-671"><a href="#cb6-671" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">1.1</span><span class="op">,</span></span>
+<span id="cb6-672"><a href="#cb6-672" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dx<span class="op">,</span></span>
+<span id="cb6-673"><a href="#cb6-673" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dy <span class="op">-</span> radius<span class="op">,</span></span>
+<span id="cb6-674"><a href="#cb6-674" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-675"><a href="#cb6-675" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>quadraticBezierTo(</span>
+<span id="cb6-676"><a href="#cb6-676" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dx <span class="op">+</span> radius<span class="op">,</span></span>
+<span id="cb6-677"><a href="#cb6-677" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">1.1</span><span class="op">,</span></span>
+<span id="cb6-678"><a href="#cb6-678" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dx <span class="op">+</span> radius<span class="op">,</span></span>
+<span id="cb6-679"><a href="#cb6-679" aria-hidden="true" tabindex="-1"></a>        center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.15</span><span class="op">,</span></span>
+<span id="cb6-680"><a href="#cb6-680" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-681"><a href="#cb6-681" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>lineTo(center<span class="op">.</span>dx <span class="op">+</span> radius<span class="op">,</span> center<span class="op">.</span>dy <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.8</span>)</span>
+<span id="cb6-682"><a href="#cb6-682" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>lineTo(center<span class="op">.</span>dx <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.35</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.45</span>)</span>
+<span id="cb6-683"><a href="#cb6-683" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>lineTo(center<span class="op">.</span>dx<span class="op">,</span> center<span class="op">.</span>dy <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.8</span>)</span>
+<span id="cb6-684"><a href="#cb6-684" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>lineTo(center<span class="op">.</span>dx <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.35</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.45</span>)</span>
+<span id="cb6-685"><a href="#cb6-685" aria-hidden="true" tabindex="-1"></a>      <span class="op">..</span>close();</span>
+<span id="cb6-686"><a href="#cb6-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-687"><a href="#cb6-687" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawPath(body<span class="op">,</span> Paint()<span class="op">..</span>color <span class="op">=</span> neonPurple);</span>
+<span id="cb6-688"><a href="#cb6-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-689"><a href="#cb6-689" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> eyePaint <span class="op">=</span> Paint()<span class="op">..</span>color <span class="op">=</span> Colors<span class="op">.</span>white;</span>
+<span id="cb6-690"><a href="#cb6-690" aria-hidden="true" tabindex="-1"></a>    <span class="at">final</span> pupilPaint <span class="op">=</span> Paint()<span class="op">..</span>color <span class="op">=</span> neonPink;</span>
+<span id="cb6-691"><a href="#cb6-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-692"><a href="#cb6-692" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-693"><a href="#cb6-693" aria-hidden="true" tabindex="-1"></a>      Offset(center<span class="op">.</span>dx <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.35</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.05</span>)<span class="op">,</span></span>
+<span id="cb6-694"><a href="#cb6-694" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.22</span><span class="op">,</span></span>
+<span id="cb6-695"><a href="#cb6-695" aria-hidden="true" tabindex="-1"></a>      eyePaint<span class="op">,</span></span>
+<span id="cb6-696"><a href="#cb6-696" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-697"><a href="#cb6-697" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-698"><a href="#cb6-698" aria-hidden="true" tabindex="-1"></a>      Offset(center<span class="op">.</span>dx <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.35</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.05</span>)<span class="op">,</span></span>
+<span id="cb6-699"><a href="#cb6-699" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.22</span><span class="op">,</span></span>
+<span id="cb6-700"><a href="#cb6-700" aria-hidden="true" tabindex="-1"></a>      eyePaint<span class="op">,</span></span>
+<span id="cb6-701"><a href="#cb6-701" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-702"><a href="#cb6-702" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-703"><a href="#cb6-703" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-704"><a href="#cb6-704" aria-hidden="true" tabindex="-1"></a>      Offset(center<span class="op">.</span>dx <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.3</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.02</span>)<span class="op">,</span></span>
+<span id="cb6-705"><a href="#cb6-705" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.11</span><span class="op">,</span></span>
+<span id="cb6-706"><a href="#cb6-706" aria-hidden="true" tabindex="-1"></a>      pupilPaint<span class="op">,</span></span>
+<span id="cb6-707"><a href="#cb6-707" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-708"><a href="#cb6-708" aria-hidden="true" tabindex="-1"></a>    canvas<span class="op">.</span>drawCircle(</span>
+<span id="cb6-709"><a href="#cb6-709" aria-hidden="true" tabindex="-1"></a>      Offset(center<span class="op">.</span>dx <span class="op">+</span> radius <span class="op">*</span> <span class="fl">0.3</span><span class="op">,</span> center<span class="op">.</span>dy <span class="op">-</span> radius <span class="op">*</span> <span class="fl">0.02</span>)<span class="op">,</span></span>
+<span id="cb6-710"><a href="#cb6-710" aria-hidden="true" tabindex="-1"></a>      radius <span class="op">*</span> <span class="fl">0.11</span><span class="op">,</span></span>
+<span id="cb6-711"><a href="#cb6-711" aria-hidden="true" tabindex="-1"></a>      pupilPaint<span class="op">,</span></span>
+<span id="cb6-712"><a href="#cb6-712" aria-hidden="true" tabindex="-1"></a>    );</span>
+<span id="cb6-713"><a href="#cb6-713" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-714"><a href="#cb6-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-715"><a href="#cb6-715" aria-hidden="true" tabindex="-1"></a>  <span class="kw">@override</span></span>
+<span id="cb6-716"><a href="#cb6-716" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> shouldRepaint(<span class="kw">covariant</span> MazePainter oldDelegate) <span class="op">=&gt;</span> <span class="cn">true</span>;</span>
+<span id="cb6-717"><a href="#cb6-717" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h2 id="conversation-4-run-and-test-the-game">Conversation 4 — Run and
+test the game</h2>
+<p><strong>Assistant instructions:</strong> After saving
+<code>lib/main.dart</code>, ensure the terminal is inside the
+<code>neon_cyber_maze</code> project folder.</p>
+<p>Run:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> pub get</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> analyze</span></code></pre></div>
+<p>Fix any errors reported before proceeding. Then run the game.</p>
+<p>For Android:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> devices</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> run</span></code></pre></div>
+<p>If multiple devices are connected, use the device ID displayed by
+<code>flutter devices</code>:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> run <span class="at">-d</span> YOUR_DEVICE_ID</span></code></pre></div>
+<p>For Windows desktop, if Windows desktop support is installed:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flutter</span> run <span class="at">-d</span> windows</span></code></pre></div>
+<h3 id="testing-checklist">Testing checklist</h3>
+<ol type="1">
+<li><strong>Game opens:</strong> The screen displays the neon maze,
+score, lives, timer, and controls.</li>
+<li><strong>Keyboard movement:</strong> Use arrow keys or W, A, S, D to
+move through open corridors.</li>
+<li><strong>Mobile controls:</strong> Tap the four directional buttons
+on Android.</li>
+<li><strong>Collect energy:</strong> Move over pink orbs; each collected
+orb adds 10 points.</li>
+<li><strong>Maze collision:</strong> The player cannot move through cyan
+walls.</li>
+<li><strong>Monster chase:</strong> The purple monster moves toward the
+player through reachable corridors.</li>
+<li><strong>Lives and game over:</strong> Being caught costs a life;
+after three catches the game ends.</li>
+<li><strong>Timer and restart:</strong> The 120-second timer counts
+down. Restart after winning or losing and check that score and lives
+reset.</li>
+</ol>
+<h3 id="important-code-components">Important code components</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>CyberMazeScreen</code></td>
+<td>Manages game state and interface.</td>
+</tr>
+<tr class="even">
+<td><code>_resetMaze()</code></td>
+<td>Loads the maze and finds starting positions.</td>
+</tr>
+<tr class="odd">
+<td><code>_movePlayer()</code></td>
+<td>Handles movement, walls, and energy collection.</td>
+</tr>
+<tr class="even">
+<td><code>_gameTick()</code></td>
+<td>Updates the timer and monster.</td>
+</tr>
+<tr class="odd">
+<td><code>_moveMonster()</code></td>
+<td>Uses breadth-first search to find a route toward the player.</td>
+</tr>
+<tr class="even">
+<td><code>_checkCollision()</code></td>
+<td>Handles encounters between player and monster.</td>
+</tr>
+<tr class="odd">
+<td><code>MazePainter</code></td>
+<td>Draws the neon maze, glowing orbs, player, and monster.</td>
+</tr>
+<tr class="even">
+<td><code>_buildControls()</code></td>
+<td>Creates the mobile directional buttons.</td>
+</tr>
+</tbody>
+</table>
+<p>Breadth-first search (BFS) calculates distances through open maze
+tiles and guides the monster toward the player. This provides a
+foundation for more sophisticated enemy AI later.</p>
+<h3 id="recommended-next-improvements">Recommended next
+improvements</h3>
+<ol type="1">
+<li>Improve maze design and gameplay: add carefully designed levels,
+ensure every collectible is reachable, and introduce level
+progression.</li>
+<li>Add power-ups and monster abilities: temporary shields, speed
+boosts, monster freezing, and more challenging pursuit patterns.</li>
+<li>Build the complete interface: main menu, pause screen, sound
+settings, saved high scores, and level selection.</li>
+<li>Prepare for Google Play: test different screen sizes, optimize
+performance, create original game assets, and complete Android release
+checks.</li>
+</ol>
+<p><strong>Immediate goal:</strong> get the code running on an Android
+phone or Windows computer before adding more features. If a compilation
+error occurs, copy the first error message from the VS Code terminal so
+the exact problem can be fixed.</p>
+<hr />
+<h2 id="conversation-5-users-archive-request">Conversation 5 — User’s
+archive request</h2>
+<p><strong>User:</strong> I want all these conversations, codes and
+queries and their reply from you on the topic of “Neon Cyber Maze
+Monster Game” development in Flutter-Dart in single word (.docx) or
+Google doc or text or .txt or .html file. So that I can use it in
+developing real game.</p>
+<p><strong>Archive response:</strong> This document preserves the
+relevant conversation available in this chat, the implementation
+preferences, setup instructions, complete first-version
+<code>main.dart</code> code, run commands, testing checklist, and future
+development roadmap. Save or copy this archive as the ongoing project
+reference. As development continues in future conversations, append new
+questions, answers, code versions, error fixes, and test results so the
+archive remains current.</p>
+<hr />
+<h2 id="practical-project-notes">Practical project notes</h2>
+<ul>
+<li>The source code above is a <strong>first prototype</strong>, not a
+verified production release. Run <code>flutter analyze</code> and test
+on your actual target devices.</li>
+<li>The first version uses one file for convenience. As the game grows,
+split responsibilities into separate files and add automated tests.</li>
+<li>Before release, verify that all maze corridors and collectibles are
+reachable, collision and respawn behavior are fair, keyboard focus works
+as expected, and the layout fits smaller phones.</li>
+<li>Add original art, sound effects, menus, persistence, accessibility,
+and a privacy policy if data collection or third-party SDKs require
+it.</li>
+<li>Keep backups or use Git version control before making large
+changes.</li>
+</ul>
+</body>
+</html>

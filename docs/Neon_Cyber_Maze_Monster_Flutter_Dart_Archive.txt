@@ -1,0 +1,1005 @@
+Neon Cyber Maze Monster Game — Flutter/Dart Development Archive
+
+Purpose: A working reference archive of the Neon Cyber Maze Monster Game
+discussion, setup instructions, source code, and testing checklist.
+
+Scope note: This archive covers the Neon Cyber Maze Monster Game
+conversation available in this chat. It preserves the requests and
+development guidance, including the complete first-version code. It
+cannot automatically include separate conversations that are not present
+in this chat.
+
+------------------------------------------------------------------------
+
+Conversation 1 — User’s initial request
+
+User: Help me in building “Neon cyber maze monster game” development in
+Flutter-Dart
+
+Assistant reply — Game concept and plan
+
+Aakash, let’s build a Neon Cyber Maze Monster game using Flutter and
+Dart, step by step, in VS Code. We’ll start with a playable prototype
+and then develop it into a polished Android game.
+
+The recommendation is to begin with a 2D neon arcade maze, rather than a
+complex 3D game. It’s more practical to build, test, and optimize in
+Flutter, especially when learning game development while creating a
+publishable Android application.
+
+Game concept
+
+Possible title: NEON MAZE: Cyber Monster Escape
+
+The game concept: - Control a cyber runner who navigates through a
+glowing maze. - A monster chases the player through corridors. - Energy
+orbs are scattered around the maze. - Neon walls glow in electric blue,
+purple, and cyan. - A countdown timer adds pressure. - Power-ups let the
+player freeze, distract, or escape from the monster. - Levels become
+harder as the monster gets faster and the maze grows more complicated.
+
+Recommended technology
+
+-   Flutter + Dart: app structure, menus, settings, scores, and Android
+    deployment.
+-   Flame game engine: an option for scalable 2D gameplay, game loops,
+    collision detection, sprites, and effects.
+-   VS Code: coding, debugging, testing, and building the APK.
+
+Development roadmap
+
+1.  Stage 1 — Playable prototype: neon maze, player movement,
+    collectible orbs, score, and basic collision detection.
+2.  Stage 2 — Monster AI: monster movement, pathfinding through
+    corridors, chasing, and player capture.
+3.  Stage 3 — Game mechanics: power-ups, lives, timer, sound effects,
+    pause, game over, and victory screens.
+4.  Stage 4 — Full game: multiple levels, difficulty progression, saved
+    high scores, settings, and improved graphics.
+5.  Stage 5 — Android release: touch controls, responsive layouts,
+    testing, app icon, privacy requirements, and Google Play
+    preparation.
+
+Initial setup commands
+
+    flutter create neon_cyber_maze
+    cd neon_cyber_maze
+    code .
+
+Verify the setup:
+
+    flutter doctor
+    flutter devices
+
+The initial project structure proposed for later growth:
+
+    neon_cyber_maze/
+    ├── lib/
+    │   ├── main.dart
+    │   ├── game/
+    │   │   ├── cyber_maze_game.dart
+    │   │   ├── maze_map.dart
+    │   │   ├── player.dart
+    │   │   ├── monster.dart
+    │   │   └── collectible.dart
+    │   ├── screens/
+    │   │   ├── home_screen.dart
+    │   │   ├── game_screen.dart
+    │   │   └── result_screen.dart
+    │   └── widgets/
+    │       └── game_controls.dart
+    ├── assets/
+    │   ├── images/
+    │   └── audio/
+    └── pubspec.yaml
+
+This was a planned structure; the first prototype was subsequently kept
+in a single Dart file for easier setup.
+
+------------------------------------------------------------------------
+
+Conversation 2 — User’s implementation preferences
+
+User: Help me build the Neon Cyber Maze Monster game in Flutter and
+Dart. Project: create from scratch. Controls: both mobile touch and
+keyboard. Visual style: classic neon arcade. Give me step-by-step
+instructions, exact file paths, complete working code, and testing
+instructions.
+
+Assistant reply — Start from scratch
+
+The selected implementation is: - A new Flutter project. - Both mobile
+touch controls and keyboard controls. - Classic neon arcade visual
+style. - Step-by-step instructions, exact file paths, complete code, and
+testing instructions.
+
+The first milestone is a playable game: move around a maze, collect
+glowing energy orbs, avoid a monster, earn points, and restart after
+winning or losing.
+
+Step 1 — Create the Flutter project
+
+Open VS Code and choose Terminal → New Terminal. Run:
+
+    flutter create neon_cyber_maze
+    cd neon_cyber_maze
+    code .
+
+If code . does not work, open the neon_cyber_maze folder manually
+through File → Open Folder.
+
+Check Flutter:
+
+    flutter doctor
+    flutter devices
+
+At least one target should be available, such as a connected Android
+phone or Windows desktop. Windows desktop development must be enabled if
+you intend to run on Windows.
+
+Implementation approach
+
+The first version uses Flutter’s built-in CustomPainter and a small game
+loop. This avoids adding a game-engine dependency at the beginning. The
+code is kept in lib/main.dart to make the first version easy to run and
+understand. Later, it can be split into player, monster, maze, and
+screen classes.
+
+------------------------------------------------------------------------
+
+Conversation 3 — Complete first-version code
+
+Assistant instruction: In VS Code, open lib/main.dart, select all
+existing code, delete it, paste the code below, and save with Ctrl + S.
+
+The code uses only Flutter’s built-in libraries. No extra package is
+required for this first version.
+
+File: lib/main.dart
+
+    import 'dart:async';
+    import 'dart:math' as math;
+
+    import 'package:flutter/material.dart';
+    import 'package:flutter/services.dart';
+
+    void main() {
+      runApp(const NeonCyberMazeApp());
+    }
+
+    const Color neonCyan = Color(0xFF00F5FF);
+    const Color neonPurple = Color(0xFFB026FF);
+    const Color neonPink = Color(0xFFFF2E93);
+    const Color backgroundColor = Color(0xFF050816);
+
+    class NeonCyberMazeApp extends StatelessWidget {
+      const NeonCyberMazeApp({super.key});
+
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Neon Cyber Maze Monster',
+          theme: ThemeData.dark().copyWith(
+            scaffoldBackgroundColor: backgroundColor,
+            colorScheme: const ColorScheme.dark(
+              primary: neonCyan,
+              secondary: neonPurple,
+            ),
+          ),
+          home: const CyberMazeScreen(),
+        );
+      }
+    }
+
+    class CyberMazeScreen extends StatefulWidget {
+      const CyberMazeScreen({super.key});
+
+      @override
+      State<CyberMazeScreen> createState() => _CyberMazeScreenState();
+    }
+
+    class _CyberMazeScreenState extends State<CyberMazeScreen> {
+      // # = wall, . = energy orb, P = player, M = monster
+      static const List<String> _layout = [
+        '###############',
+        '#P....#.......#',
+        '#.##..#..###..#',
+        '#......#......#',
+        '###.##...##.###',
+        '#...#.....#...#',
+        '#.#.#.###.#.#.#',
+        '#.#...#...#.#.#',
+        '#.###.#.###.#.#',
+        '#.....#.....#.#',
+        '#.###...###...#',
+        '#...#.....#...#',
+        '###.#.###.#.###',
+        '#...........M.#',
+        '###############',
+      ];
+
+      late List<List<String>> _maze;
+
+      int _playerX = 1;
+      int _playerY = 1;
+      int _monsterX = 12;
+      int _monsterY = 13;
+
+      int _score = 0;
+      int _ticks = 0;
+      int _lives = 3;
+
+      bool _playing = true;
+      bool _won = false;
+      bool _started = false;
+
+      Timer? _timer;
+      final FocusNode _focusNode = FocusNode();
+
+      int get _secondsLeft => math.max(0, 120 - _ticks ~/ 6);
+
+      @override
+      void initState() {
+        super.initState();
+        _resetMaze();
+      }
+
+      void _resetMaze() {
+        _maze = _layout.map((row) => row.split('')).toList();
+
+        for (int y = 0; y < _maze.length; y++) {
+          for (int x = 0; x < _maze[y].length; x++) {
+            if (_maze[y][x] == 'P') {
+              _playerX = x;
+              _playerY = y;
+              _maze[y][x] = ' ';
+            } else if (_maze[y][x] == 'M') {
+              _monsterX = x;
+              _monsterY = y;
+              _maze[y][x] = ' ';
+            }
+          }
+        }
+      }
+
+      void _startGame() {
+        if (_started) return;
+
+        setState(() {
+          _started = true;
+          _playing = true;
+        });
+
+        _timer = Timer.periodic(
+          const Duration(milliseconds: 160),
+          (_) => _gameTick(),
+        );
+
+        _focusNode.requestFocus();
+      }
+
+      void _restartGame() {
+        _timer?.cancel();
+
+        setState(() {
+          _resetMaze();
+          _score = 0;
+          _ticks = 0;
+          _lives = 3;
+          _playing = true;
+          _won = false;
+          _started = false;
+        });
+
+        _startGame();
+      }
+
+      bool _isOpen(int x, int y) {
+        return y >= 0 &&
+            y < _maze.length &&
+            x >= 0 &&
+            x < _maze[y].length &&
+            _maze[y][x] != '#';
+      }
+
+      void _movePlayer(int dx, int dy) {
+        if (!_playing) return;
+
+        if (!_started) {
+          _startGame();
+        }
+
+        final int nx = _playerX + dx;
+        final int ny = _playerY + dy;
+
+        if (!_isOpen(nx, ny)) return;
+
+        setState(() {
+          _playerX = nx;
+          _playerY = ny;
+
+          if (_maze[ny][nx] == '.') {
+            _maze[ny][nx] = ' ';
+            _score += 10;
+          }
+
+          _checkCollision();
+
+          if (_playing && !_hasPellets()) {
+            _finishGame(true);
+          }
+        });
+      }
+
+      bool _hasPellets() {
+        for (final row in _maze) {
+          if (row.contains('.')) return true;
+        }
+        return false;
+      }
+
+      void _gameTick() {
+        if (!_playing || !_started) return;
+
+        setState(() {
+          _ticks++;
+
+          if (_secondsLeft <= 0) {
+            _finishGame(false);
+            return;
+          }
+
+          // The monster moves every fourth tick.
+          if (_ticks % 4 == 0) {
+            _moveMonster();
+            _checkCollision();
+          }
+        });
+      }
+
+      void _moveMonster() {
+        // Breadth-first search calculates distances from the player.
+        final rows = _maze.length;
+        final cols = _maze[0].length;
+
+        final distances = List.generate(
+          rows,
+          (_) => List<int>.filled(cols, -1),
+        );
+
+        final queue = <(int, int)>[];
+        queue.add((_playerX, _playerY));
+        distances[_playerY][_playerX] = 0;
+
+        const directions = <(int, int)>[
+          (0, -1),
+          (0, 1),
+          (-1, 0),
+          (1, 0),
+        ];
+
+        int index = 0;
+
+        while (index < queue.length) {
+          final (x, y) = queue[index++];
+
+          for (final (dx, dy) in directions) {
+            final nx = x + dx;
+            final ny = y + dy;
+
+            if (_isOpen(nx, ny) && distances[ny][nx] == -1) {
+              distances[ny][nx] = distances[y][x] + 1;
+              queue.add((nx, ny));
+            }
+          }
+        }
+
+        // Choose the reachable adjacent tile closest to the player.
+        int bestX = _monsterX;
+        int bestY = _monsterY;
+        int bestDistance = 999999;
+
+        for (final (dx, dy) in directions) {
+          final nx = _monsterX + dx;
+          final ny = _monsterY + dy;
+
+          if (!_isOpen(nx, ny)) continue;
+
+          final distance = distances[ny][nx];
+
+          if (distance >= 0 && distance < bestDistance) {
+            bestDistance = distance;
+            bestX = nx;
+            bestY = ny;
+          }
+        }
+
+        _monsterX = bestX;
+        _monsterY = bestY;
+      }
+
+      void _checkCollision() {
+        if (_playerX == _monsterX && _playerY == _monsterY) {
+          _lives--;
+
+          if (_lives <= 0) {
+            _finishGame(false);
+            return;
+          }
+
+          // Respawn the player after being caught.
+          _playerX = 1;
+          _playerY = 1;
+        }
+      }
+
+      void _finishGame(bool won) {
+        _playing = false;
+        _won = won;
+        _timer?.cancel();
+      }
+
+      void _handleKey(KeyEvent event) {
+        if (event is! KeyDownEvent) return;
+
+        final key = event.logicalKey;
+
+        if (key == LogicalKeyboardKey.keyR && !_playing) {
+          _restartGame();
+          return;
+        }
+
+        if (!_playing) return;
+
+        if (key == LogicalKeyboardKey.arrowUp ||
+            key == LogicalKeyboardKey.keyW) {
+          _movePlayer(0, -1);
+        } else if (key == LogicalKeyboardKey.arrowDown ||
+            key == LogicalKeyboardKey.keyS) {
+          _movePlayer(0, 1);
+        } else if (key == LogicalKeyboardKey.arrowLeft ||
+            key == LogicalKeyboardKey.keyA) {
+          _movePlayer(-1, 0);
+        } else if (key == LogicalKeyboardKey.arrowRight ||
+            key == LogicalKeyboardKey.keyD) {
+          _movePlayer(1, 0);
+        } else if (key == LogicalKeyboardKey.space) {
+          if (!_started) _startGame();
+        }
+      }
+
+      @override
+      void dispose() {
+        _timer?.cancel();
+        _focusNode.dispose();
+        super.dispose();
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return KeyboardListener(
+          focusNode: _focusNode,
+          autofocus: true,
+          onKeyEvent: _handleKey,
+          child: Scaffold(
+            body: SafeArea(
+              child: Column(
+                children: [
+                  const SizedBox(height: 12),
+                  const Text(
+                    'NEON CYBER MAZE',
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 2.5,
+                      color: neonCyan,
+                      shadows: [
+                        Shadow(color: neonCyan, blurRadius: 15),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    'MONSTER ESCAPE PROTOCOL',
+                    style: TextStyle(
+                      fontSize: 10,
+                      letterSpacing: 3,
+                      color: neonPurple,
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _hud('SCORE', '$_score', neonCyan),
+                        _hud('TIME', '$_secondsLeft', neonPink),
+                        _hud('LIVES', '$_lives', neonPurple),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Expanded(
+                    child: Center(
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final side = math.min(
+                            constraints.maxWidth,
+                            constraints.maxHeight,
+                          );
+
+                          return SizedBox(
+                            width: side,
+                            height: side,
+                            child: CustomPaint(
+                              painter: MazePainter(
+                                maze: _maze,
+                                playerX: _playerX,
+                                playerY: _playerY,
+                                monsterX: _monsterX,
+                                monsterY: _monsterY,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  if (!_started && _playing)
+                    const Text(
+                      'COLLECT ALL ENERGY ORBS!',
+                      style: TextStyle(
+                        color: neonCyan,
+                        fontSize: 12,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                  if (!_playing) ...[
+                    Text(
+                      _won ? 'LEVEL CLEARED!' : 'SYSTEM FAILURE',
+                      style: TextStyle(
+                        color: _won ? neonCyan : neonPink,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: _won ? neonCyan : neonPink,
+                            blurRadius: 12,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Final score: $_score',
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                    const SizedBox(height: 8),
+                    ElevatedButton.icon(
+                      onPressed: _restartGame,
+                      icon: const Icon(Icons.refresh),
+                      label: const Text('PLAY AGAIN'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: neonPurple,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ],
+                  _buildControls(),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'ARROWS / WASD   •   R TO RESTART AFTER GAME OVER',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 9,
+                      color: Colors.white38,
+                      letterSpacing: 0.7,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+
+      Widget _hud(String label, String value, Color color) {
+        return Column(
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white54,
+                fontSize: 10,
+                letterSpacing: 2,
+              ),
+            ),
+            const SizedBox(height: 3),
+            Text(
+              value,
+              style: TextStyle(
+                color: color,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                shadows: [Shadow(color: color, blurRadius: 10)],
+              ),
+            ),
+          ],
+        );
+      }
+
+      Widget _buildControls() {
+        return Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _directionButton(Icons.keyboard_arrow_up, 0, -1),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _directionButton(Icons.keyboard_arrow_left, -1, 0),
+                  const SizedBox(width: 52),
+                  _directionButton(Icons.keyboard_arrow_right, 1, 0),
+                ],
+              ),
+              _directionButton(Icons.keyboard_arrow_down, 0, 1),
+            ],
+          ),
+        );
+      }
+
+      Widget _directionButton(IconData icon, int dx, int dy) {
+        return SizedBox(
+          width: 46,
+          height: 38,
+          child: Padding(
+            padding: const EdgeInsets.all(2),
+            child: OutlinedButton(
+              onPressed: _playing ? () => _movePlayer(dx, dy) : null,
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.zero,
+                foregroundColor: neonCyan,
+                side: const BorderSide(color: neonCyan, width: 1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Icon(icon, size: 26),
+            ),
+          ),
+        );
+      }
+    }
+
+    class MazePainter extends CustomPainter {
+      final List<List<String>> maze;
+      final int playerX;
+      final int playerY;
+      final int monsterX;
+      final int monsterY;
+
+      MazePainter({
+        required this.maze,
+        required this.playerX,
+        required this.playerY,
+        required this.monsterX,
+        required this.monsterY,
+      });
+
+      @override
+      void paint(Canvas canvas, Size size) {
+        final rows = maze.length;
+        final cols = maze[0].length;
+        final tileW = size.width / cols;
+        final tileH = size.height / rows;
+
+        final background = Paint()..color = const Color(0xFF070B1B);
+        canvas.drawRect(Offset.zero & size, background);
+
+        // Draw walls and collectible orbs.
+        for (int y = 0; y < rows; y++) {
+          for (int x = 0; x < cols; x++) {
+            final rect = Rect.fromLTWH(
+              x * tileW,
+              y * tileH,
+              tileW,
+              tileH,
+            );
+
+            if (maze[y][x] == '#') {
+              final wallRect = rect.deflate(math.min(tileW, tileH) * 0.09);
+
+              final glowPaint = Paint()
+                ..color = neonCyan.withValues(alpha: 0.18)
+                ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
+
+              canvas.drawRRect(
+                RRect.fromRectAndRadius(
+                  wallRect,
+                  Radius.circular(tileW * 0.18),
+                ),
+                glowPaint,
+              );
+
+              final wallPaint = Paint()
+                ..color = const Color(0xFF102E49)
+                ..style = PaintingStyle.fill;
+
+              canvas.drawRRect(
+                RRect.fromRectAndRadius(
+                  wallRect,
+                  Radius.circular(tileW * 0.18),
+                ),
+                wallPaint,
+              );
+
+              final borderPaint = Paint()
+                ..color = neonCyan.withValues(alpha: 0.85)
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 1;
+
+              canvas.drawRRect(
+                RRect.fromRectAndRadius(
+                  wallRect,
+                  Radius.circular(tileW * 0.18),
+                ),
+                borderPaint,
+              );
+            } else if (maze[y][x] == '.') {
+              final center = Offset(
+                (x + 0.5) * tileW,
+                (y + 0.5) * tileH,
+              );
+
+              final glow = Paint()
+                ..color = neonPink.withValues(alpha: 0.5)
+                ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
+
+              canvas.drawCircle(center, tileW * 0.23, glow);
+
+              canvas.drawCircle(
+                center,
+                tileW * 0.105,
+                Paint()..color = Colors.white,
+              );
+
+              canvas.drawCircle(
+                center,
+                tileW * 0.07,
+                Paint()..color = neonPink,
+              );
+            }
+          }
+        }
+
+        _drawPlayer(canvas, tileW, tileH);
+        _drawMonster(canvas, tileW, tileH);
+      }
+
+      void _drawPlayer(Canvas canvas, double tileW, double tileH) {
+        final center = Offset(
+          (playerX + 0.5) * tileW,
+          (playerY + 0.5) * tileH,
+        );
+
+        final radius = math.min(tileW, tileH) * 0.32;
+
+        final glow = Paint()
+          ..color = neonCyan.withValues(alpha: 0.6)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 7);
+
+        canvas.drawCircle(center, radius * 1.3, glow);
+        canvas.drawCircle(center, radius, Paint()..color = neonCyan);
+        canvas.drawCircle(
+          center,
+          radius * 0.53,
+          Paint()..color = const Color(0xFF063347),
+        );
+
+        canvas.drawCircle(
+          center,
+          radius * 0.18,
+          Paint()..color = Colors.white,
+        );
+      }
+
+      void _drawMonster(Canvas canvas, double tileW, double tileH) {
+        final center = Offset(
+          (monsterX + 0.5) * tileW,
+          (monsterY + 0.5) * tileH,
+        );
+
+        final radius = math.min(tileW, tileH) * 0.34;
+
+        final glow = Paint()
+          ..color = neonPurple.withValues(alpha: 0.7)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
+
+        canvas.drawCircle(center, radius * 1.3, glow);
+
+        final body = Path()
+          ..moveTo(center.dx - radius, center.dy + radius * 0.8)
+          ..lineTo(center.dx - radius, center.dy - radius * 0.15)
+          ..quadraticBezierTo(
+            center.dx - radius,
+            center.dy - radius * 1.1,
+            center.dx,
+            center.dy - radius,
+          )
+          ..quadraticBezierTo(
+            center.dx + radius,
+            center.dy - radius * 1.1,
+            center.dx + radius,
+            center.dy - radius * 0.15,
+          )
+          ..lineTo(center.dx + radius, center.dy + radius * 0.8)
+          ..lineTo(center.dx + radius * 0.35, center.dy + radius * 0.45)
+          ..lineTo(center.dx, center.dy + radius * 0.8)
+          ..lineTo(center.dx - radius * 0.35, center.dy + radius * 0.45)
+          ..close();
+
+        canvas.drawPath(body, Paint()..color = neonPurple);
+
+        final eyePaint = Paint()..color = Colors.white;
+        final pupilPaint = Paint()..color = neonPink;
+
+        canvas.drawCircle(
+          Offset(center.dx - radius * 0.35, center.dy - radius * 0.05),
+          radius * 0.22,
+          eyePaint,
+        );
+        canvas.drawCircle(
+          Offset(center.dx + radius * 0.35, center.dy - radius * 0.05),
+          radius * 0.22,
+          eyePaint,
+        );
+
+        canvas.drawCircle(
+          Offset(center.dx - radius * 0.3, center.dy - radius * 0.02),
+          radius * 0.11,
+          pupilPaint,
+        );
+        canvas.drawCircle(
+          Offset(center.dx + radius * 0.3, center.dy - radius * 0.02),
+          radius * 0.11,
+          pupilPaint,
+        );
+      }
+
+      @override
+      bool shouldRepaint(covariant MazePainter oldDelegate) => true;
+    }
+
+------------------------------------------------------------------------
+
+Conversation 4 — Run and test the game
+
+Assistant instructions: After saving lib/main.dart, ensure the terminal
+is inside the neon_cyber_maze project folder.
+
+Run:
+
+    flutter pub get
+    flutter analyze
+
+Fix any errors reported before proceeding. Then run the game.
+
+For Android:
+
+    flutter devices
+    flutter run
+
+If multiple devices are connected, use the device ID displayed by
+flutter devices:
+
+    flutter run -d YOUR_DEVICE_ID
+
+For Windows desktop, if Windows desktop support is installed:
+
+    flutter run -d windows
+
+Testing checklist
+
+1.  Game opens: The screen displays the neon maze, score, lives, timer,
+    and controls.
+2.  Keyboard movement: Use arrow keys or W, A, S, D to move through open
+    corridors.
+3.  Mobile controls: Tap the four directional buttons on Android.
+4.  Collect energy: Move over pink orbs; each collected orb adds 10
+    points.
+5.  Maze collision: The player cannot move through cyan walls.
+6.  Monster chase: The purple monster moves toward the player through
+    reachable corridors.
+7.  Lives and game over: Being caught costs a life; after three catches
+    the game ends.
+8.  Timer and restart: The 120-second timer counts down. Restart after
+    winning or losing and check that score and lives reset.
+
+Important code components
+
+  -----------------------------------------------------------------------
+  Code component                      Purpose
+  ----------------------------------- -----------------------------------
+  CyberMazeScreen                     Manages game state and interface.
+
+  _resetMaze()                        Loads the maze and finds starting
+                                      positions.
+
+  _movePlayer()                       Handles movement, walls, and energy
+                                      collection.
+
+  _gameTick()                         Updates the timer and monster.
+
+  _moveMonster()                      Uses breadth-first search to find a
+                                      route toward the player.
+
+  _checkCollision()                   Handles encounters between player
+                                      and monster.
+
+  MazePainter                         Draws the neon maze, glowing orbs,
+                                      player, and monster.
+
+  _buildControls()                    Creates the mobile directional
+                                      buttons.
+  -----------------------------------------------------------------------
+
+Breadth-first search (BFS) calculates distances through open maze tiles
+and guides the monster toward the player. This provides a foundation for
+more sophisticated enemy AI later.
+
+Recommended next improvements
+
+1.  Improve maze design and gameplay: add carefully designed levels,
+    ensure every collectible is reachable, and introduce level
+    progression.
+2.  Add power-ups and monster abilities: temporary shields, speed
+    boosts, monster freezing, and more challenging pursuit patterns.
+3.  Build the complete interface: main menu, pause screen, sound
+    settings, saved high scores, and level selection.
+4.  Prepare for Google Play: test different screen sizes, optimize
+    performance, create original game assets, and complete Android
+    release checks.
+
+Immediate goal: get the code running on an Android phone or Windows
+computer before adding more features. If a compilation error occurs,
+copy the first error message from the VS Code terminal so the exact
+problem can be fixed.
+
+------------------------------------------------------------------------
+
+Conversation 5 — User’s archive request
+
+User: I want all these conversations, codes and queries and their reply
+from you on the topic of “Neon Cyber Maze Monster Game” development in
+Flutter-Dart in single word (.docx) or Google doc or text or .txt or
+.html file. So that I can use it in developing real game.
+
+Archive response: This document preserves the relevant conversation
+available in this chat, the implementation preferences, setup
+instructions, complete first-version main.dart code, run commands,
+testing checklist, and future development roadmap. Save or copy this
+archive as the ongoing project reference. As development continues in
+future conversations, append new questions, answers, code versions,
+error fixes, and test results so the archive remains current.
+
+------------------------------------------------------------------------
+
+Practical project notes
+
+-   The source code above is a first prototype, not a verified
+    production release. Run flutter analyze and test on your actual
+    target devices.
+-   The first version uses one file for convenience. As the game grows,
+    split responsibilities into separate files and add automated tests.
+-   Before release, verify that all maze corridors and collectibles are
+    reachable, collision and respawn behavior are fair, keyboard focus
+    works as expected, and the layout fits smaller phones.
+-   Add original art, sound effects, menus, persistence, accessibility,
+    and a privacy policy if data collection or third-party SDKs require
+    it.
+-   Keep backups or use Git version control before making large changes.
